@@ -5,7 +5,7 @@ canvas.height = window.innerHeight
 let context = canvas.getContext("2d")
 
 context.fillStyle = "black"
-context.fillRect(10, 10, canvas.width, canvas.height)
+context.fillRect(0, 0, canvas.width, canvas.height)
 
 //Ett objekt som håller information om en ruta som ska ritas
 let square = {
@@ -41,7 +41,7 @@ function updatePosition(rect) {
 // Denna funktion "tömmer" canvasen genom att måla den svart.
 function clearCanvas() {
   context.fillStyle = "black"
-  context.fillRect(10, 10, canvas.width, canvas.height)
+  context.fillRect(0, 0, canvas.width, canvas.height)
 }
 
 // Det här är huvudfunktionen som kör funktioner för att animeringen ska fungera.

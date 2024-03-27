@@ -1,11 +1,8 @@
 let canvas = document.getElementById("canvas")
 canvas.width = window.innerWidth
-canvas.height = window.innerHeight
+canvas.height = window.innerHeight - 10 // -10 eftersom canvasen blir liiite för stor annars ¯\_(ツ)_/¯
 
 let context = canvas.getContext("2d")
-
-context.fillStyle = "black"
-context.fillRect(0, 0, canvas.width, canvas.height)
 
 //Ett objekt som håller information om en ruta som ska ritas
 let square = {
@@ -49,9 +46,9 @@ function update() {
   clearCanvas()
   updatePosition(square)
   drawRect(square)
+  requestAnimationFrame(update) //Kör den här funktionen igen. Det här skapar en "oändlig loop".
 }
 
-// setInterval kör en funktion med jämna mellanrum.
-// Argument 1 är funktionen som ska köras.
-// Argument 2 är hur många millisekunder det ska vara mellan körningarna.
-setInterval(update, 10)
+// requestAnimationFrame(funktion) kör en funktion en gång. Funktionen körs på ett sätt
+// som är optimerat för att animera i en webbläsare.
+requestAnimationFrame(update)

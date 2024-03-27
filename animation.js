@@ -11,11 +11,9 @@ let square = {
   height: 30,
   posX: 10,
   posY: 10,
+  speedX: 2, // Egenskaper för att styra hastigheten på rutan
+  speedY: 2,
 }
-
-// Variabler för att styra hastigheten på rutan
-let speedX = 2
-let speedY = 2
 
 //Ritar ut en ruta med sin färg, på den position den befinner sig.
 function drawRect(rect) {
@@ -24,7 +22,17 @@ function drawRect(rect) {
 }
 
 //Uppdaterar postionen på en ruta, beror av speedX och speedY
-function updatePosition(rect) {}
+function updatePosition(rect) {
+  // Kontrollera om rutan kolliderar med nedre kanten av canvasen.
+  if (rect.posY + rect.height >= canvas.height) {
+    // Vänd på hastigheten i y-led
+    rect.speedY = -rect.speedY
+  }
+
+  rect.posX += rect.speedX
+  rect.posY += rect.speedY
+  console.log(rect)
+}
 
 // Denna funktion "tömmer" canvasen genom att måla den svart.
 function clearCanvas() {

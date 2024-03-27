@@ -24,16 +24,7 @@ function drawRect(rect) {
 }
 
 //Uppdaterar postionen på en ruta, beror av speedX och speedY
-function updatePosition(rect) {
-  rect.posX += speedX
-  // Denna if-sats kontrollerar om rutan nått botten och vänder i så fall på
-  // hastigheten, i y-led, så den riktas uppåt.
-  if (rect.posY + speedY + rect.height > canvas.height) {
-    speedY = -speedY
-  }
-
-  rect.posY += speedY
-}
+function updatePosition(rect) {}
 
 // Denna funktion "tömmer" canvasen genom att måla den svart.
 function clearCanvas() {
@@ -43,8 +34,8 @@ function clearCanvas() {
 
 // Det här är huvudfunktionen som kör funktioner för att animeringen ska fungera.
 function update() {
-  clearCanvas()
   updatePosition(square)
+  clearCanvas()
   drawRect(square)
   requestAnimationFrame(update) //Kör den här funktionen igen. Det här skapar en "oändlig loop".
 }
